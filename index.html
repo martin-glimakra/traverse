@@ -40,6 +40,9 @@
                 if (flyttaMig === allaListItems[i]) {
                     vilkenPlats = i
                 }
+            }
+            console.log('vilkenPlats', vilkenPlats)
+            console.log('allaListItems[innanVilkenPlats]', allaListItems[vilkenPlats - 1])
             document.getElementById("listan").insertBefore(flyttaMig, allaListItems[vilkenPlats - 1])
         }
 
@@ -49,11 +52,6 @@
         }
         function knappen() {
 
-
-            // flyttar sjätte till efter fjärde till innan sjätte
-            //insertAfter(fjärde, sjätte)
-
-            // flyttar fjärde till innan sjätte
             document.getElementById("listan").insertBefore(fjärde, sjätte)
         }
 
