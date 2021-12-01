@@ -11,22 +11,32 @@
         <li id="första" class="element">1</li>
         <li id="andra" class="element">2</li>
         <li id="tredje" class="element">3</li>
-        <li id="fjärde" class="element">4</li>
-        <li id="femte" class="element">5</li>
-        <li id="flytta-mig" class="element">Flytta mig</li>
+        <li id="fjärde" class="element">
+            <p>4</p>
+            <button class="upp">upp</button>
+            <button class="ner">ner</button>    
+        </li>
+        <li id="femte" class="element">
+            <p>5</p>
+            <button class="upp">upp</button>
+            <button class="ner">ner</button>    
+        </li>
         <li id="sjätte" class="element">6</li>
-        <button id="upp">upp</button>
-        <button id="ner">ner</button>
 
     </ul>
     <script>
-        document.getElementById("upp").addEventListener("click", function() {
-            flytta('upp', document.getElementById("flytta-mig"))
+        document.getElementById("listan").addEventListener("click", function (event) {
+            if (event.target.className === 'upp') {
+                flytta('upp', event.target.parentElement)
+            }
+            else if (event.target.className === 'ner') {
+                flytta('ner', event.target.parentElement)
+            }
+            else {
+                //nada
+            }
         })
 
-        document.getElementById("ner").addEventListener("click", function() {
-            flytta('ner', document.getElementById("flytta-mig"))
-        })
 
         function flytta(riktning, flyttaMig) {
             let allaListItems = document.getElementsByClassName("element")
