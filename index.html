@@ -8,38 +8,45 @@
 </head>
 <body>
     <ul id="listan">
-        <li id="första" class="element"></li>
-        <li id="andra" class="element"></li>
-        <li id="tredje" class="element"></li>
-        <li id="fjärde" class="element"></li>
-        <li id="femte" class="element"></li>
+        <li id="första" class="element">1</li>
+        <li id="andra" class="element">2</li>
+        <li id="tredje" class="element">3</li>
+        <li id="fjärde" class="element">4</li>
+        <li id="femte" class="element">5</li>
         <li id="flytta-mig" class="element">Flytta mig</li>
-        <li id="sjätte" class="element"></li>
-        <button onclick="upp()">upp</button>
-        <button onclick="ner()">ner</button>
+        <li id="sjätte" class="element">6</li>
+        <button id="upp">upp</button>
+        <button id="ner">ner</button>
 
     </ul>
     <script>
-        function upp() {
+        document.getElementById("upp").addEventListener("click", function() {
+            flytta('upp', document.getElementById("flytta-mig"))
+        })
 
-            let flyttaMig = document.getElementById("flytta-mig")
+        document.getElementById("ner").addEventListener("click", function() {
+            flytta('ner', document.getElementById("flytta-mig"))
+        })
+
+        function flytta(riktning, flyttaMig) {
             let allaListItems = document.getElementsByClassName("element")
             let vilkenPlats
 
             for (let i = 0; i < allaListItems.length; i++) {
                 const element = allaListItems[i];
                 if (flyttaMig === allaListItems[i]) {
-                    vilkenPlats = i
+                    if (riktning === 'upp') {
+                        vilkenPlats = i - 1
+                    }
+                    else {
+                        vilkenPlats = i + 2
+                    }
+                }
+                else {
+                    // ingenting
                 }
             }
-            console.log('vilkenPlats', vilkenPlats)
-            console.log('allaListItems[innanVilkenPlats]', allaListItems[vilkenPlats - 1])
-            document.getElementById("listan").insertBefore(flyttaMig, allaListItems[vilkenPlats - 1])
-        }
-
-        function ner() {
-            let flyttaMig = document.getElementById("flytta-mig")
-            document.getElementById("listan").insertBefore(flyttaMig, flyttaMig.nextElementSibling)
+            document.getElementById("listan").insertBefore(flyttaMig, allaListItems[vilkenPlats])
         }
     </script>
 </body>
