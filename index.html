@@ -15,20 +15,11 @@
         <li id="femte" class="element"></li>
         <li id="flytta-mig" class="element">Flytta mig</li>
         <li id="sjätte" class="element"></li>
-        <button onclick="knappen()">knappen</button>
         <button onclick="upp()">upp</button>
         <button onclick="ner()">ner</button>
 
     </ul>
     <script>
-            // let första = document.getElementById("första")
-            // let andra = document.getElementById("andra")
-            // let tredje = document.getElementById("tredje")
-            // let fjärde = document.getElementById("fjärde")
-            // let femte = document.getElementById("femte")
-            // let sjätte = document.getElementById("sjätte")
-
-
         function upp() {
 
             let flyttaMig = document.getElementById("flytta-mig")
@@ -49,14 +40,6 @@
         function ner() {
             let flyttaMig = document.getElementById("flytta-mig")
             document.getElementById("listan").insertBefore(flyttaMig, flyttaMig.nextElementSibling)
-        }
-        function knappen() {
-
-            document.getElementById("listan").insertBefore(fjärde, sjätte)
-        }
-
-        function insertAfter(referenceNode, newNode) {
-        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
         }
     </script>
 </body>
