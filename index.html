@@ -38,13 +38,13 @@
         })
 
 
-        function flytta(riktning, flyttaMig) {
+        function flytta(riktning, elementAttFlytta) {
             let allaListItems = document.getElementsByClassName("element")
             let vilkenPlats
 
             for (let i = 0; i < allaListItems.length; i++) {
                 const element = allaListItems[i];
-                if (flyttaMig === allaListItems[i]) {
+                if (elementAttFlytta === allaListItems[i]) {
                     if (riktning === 'upp') {
                         vilkenPlats = i - 1
                     }
@@ -56,7 +56,7 @@
                     // ingenting
                 }
             }
-            document.getElementById("listan").insertBefore(flyttaMig, allaListItems[vilkenPlats])
+            document.getElementById("listan").insertBefore(elementAttFlytta, allaListItems[vilkenPlats])
         }
     </script>
 </body>
