@@ -8,34 +8,44 @@
 </head>
 <body>
     <ul id="listan">
-        <li id="första" class="element">1</li>
-        <li id="andra" class="element">2</li>
-        <li id="tredje" class="element">3</li>
-        <li id="fjärde" class="element">4</li>
-        <li id="femte" class="element">5</li>
-        <li id="flytta-mig">Flytta mig</li>
-        <li id="sjätte" class="element">6</li>
+        <li id="första" class="element"></li>
+        <li id="andra" class="element"></li>
+        <li id="tredje" class="element"></li>
+        <li id="fjärde" class="element"></li>
+        <li id="femte" class="element"></li>
+        <li id="flytta-mig" class="element">Flytta mig</li>
+        <li id="sjätte" class="element"></li>
         <button onclick="knappen()">knappen</button>
         <button onclick="upp()">upp</button>
         <button onclick="ner()">ner</button>
 
     </ul>
     <script>
-            let första = document.getElementById("första")
-            let andra = document.getElementById("andra")
-            let tredje = document.getElementById("tredje")
-            let fjärde = document.getElementById("fjärde")
-            let femte = document.getElementById("femte")
-            let sjätte = document.getElementById("sjätte")
-            let flyttaMig = document.getElementById("flytta-mig")
+            // let första = document.getElementById("första")
+            // let andra = document.getElementById("andra")
+            // let tredje = document.getElementById("tredje")
+            // let fjärde = document.getElementById("fjärde")
+            // let femte = document.getElementById("femte")
+            // let sjätte = document.getElementById("sjätte")
 
 
         function upp() {
-            document.getElementById("listan").insertBefore(flyttaMig, flyttaMig.previousSibling.previousSibling)
+
+            let flyttaMig = document.getElementById("flytta-mig")
+            let allaListItems = document.getElementsByClassName("element")
+            let vilkenPlats
+
+            for (let i = 0; i < allaListItems.length; i++) {
+                const element = allaListItems[i];
+                if (flyttaMig === allaListItems[i]) {
+                    vilkenPlats = i
+                }
+            document.getElementById("listan").insertBefore(flyttaMig, allaListItems[vilkenPlats - 1])
         }
 
         function ner() {
-            document.getElementById("listan").insertBefore(flyttaMig, flyttaMig.nextElementSibling.nextElementSibling)
+            let flyttaMig = document.getElementById("flytta-mig")
+            document.getElementById("listan").insertBefore(flyttaMig, flyttaMig.nextElementSibling)
         }
         function knappen() {
 
