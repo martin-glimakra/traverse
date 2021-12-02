@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25 dec</title>
+</head>
+<body>
+    <ul id="hela-listan">
+        <li id="1-elementet">1</li>
+        <li id="2-elementet">2</li>
+    </ul>
+    <script>
+        // children
+        let helaListansBarn = document.getElementById("hela-listan").children
+        console.log(helaListansBarn[0])
+
+        // parent
+        let ettansFörälder = document.getElementById("1-elementet").parentElement
+        console.log(ettansFörälder)
+    </script>
+</body>
+</html>
